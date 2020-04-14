@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+
+<div>
+    <h1>C'est le bon chemin !</h1>
+</div>
+{% endblock %}
+
+
+{# <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script> var __basePath = ''; </script>
+<script src="#"></script>
+<link rel="stylesheet" href="#" type="text/css" />
+</head>
+<script src="js/aggrid/ag-grid-enterprise.min.js"></script>
+<body>
+  <h1>Hello from ag-grid!</h1>
+  <div id="myGrid" style="height: 250px;width:1000px;" class="ag-theme-balham"></div>
+  <script type="text/javascript" charset="utf-8">
+
+    // specify the columns
+    var columnDefs = [
+    {headerName: "Make", field: "make", sortable: true, filter: true, rowGroup: true},
+    {headerName: "Model", field: "model", sortable: true, filter: true, aggFunc: 'Model ' },
+    {headerName: "Price", field: "price", sortable: true, filter: true, aggFunc: 'Euros ', type: "numericColumn"},
+    {headerName: "Wheal", field: "wheal", sortable: true, filter: true, aggFunc: 'Wheal ', type: "numericColumn"},
+    {headerName: "Country", field: "country", sortable: true, filter: true, aggFunc: 'Country '}
+];
+
+    // specify the data
+    var rowData = [
+      {make: "Toyota", model: "Celica", price : 35000.26, wheal: "4", country: 'Japan' },
+      {make: "Ford", model: "Mondeo", price: 32000, wheal: "4", country: 'USA'},
+      {make: "Porsche", model: "Boxter", price: 72000, wheal: "3", country: 'Germania'},
+      {make: "Renault", model: "Clio", price: 22000, wheal: "4", country: 'France'},
+      {make: "Toyota", model: "Yaris", price: 15000, wheal: "4", country: 'Japan'}
+    ];
+
+    // let the grid know which columns and what data to use
+    var gridOptions = {
+      columnDefs: columnDefs,
+      rowData: rowData
+    };
+
+  // lookup the container we want the Grid to use
+  var eGridDiv = document.querySelector('#myGrid');
+
+  // create the grid passing in the div to use together with the columns & data we want to use
+  new agGrid.Grid(eGridDiv, gridOptions);
+
+  // create the grid passing in the div to use together with the columns & data we want to use
+  new agGrid.Grid(eGridDiv, gridOptions);
+
+agGrid.simpleHttpRequest({url: 'https://api.myjson.com/bins/ly7d1'}).then(function(data) {
+    gridOptions.api.setRowData(data);
+});
+
+  </script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html> #}

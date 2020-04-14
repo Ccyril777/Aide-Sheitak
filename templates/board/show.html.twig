@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Board{% endblock %}
+
+{% block body %}
+    <h1>Board</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ board.id }}</td>
+            </tr>
+            <tr>
+                <th>UsualName</th>
+                <td>{{ board.usualName }}</td>
+            </tr>
+            <tr>
+                <th>Observation</th>
+                <td>{{ board.observation }}</td>
+            </tr>
+            <tr>
+                <th>Progress</th>
+                <td>{{ board.progress }}</td>
+            </tr>
+            <tr>
+                <th>Typology</th>
+                <td>{{ board.typology }}</td>
+            </tr>
+            <tr>
+                <th>Approval</th>
+                <td>{{ board.approval }}</td>
+            </tr>
+            <tr>
+                <th>Domain</th>
+                <td>{{ board.domain }}</td>
+            </tr>
+            <tr>
+                <th>TypologySI</th>
+                <td>{{ board.typologySI }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ board.location }}</td>
+            </tr>
+            <tr>
+                <th>Entity</th>
+                <td>{{ board.entity }}</td>
+            </tr>
+            <tr>
+                <th>Technology</th>
+                <td>{{ board.technology }}</td>
+            </tr>
+            <tr>
+                <th>Network</th>
+                <td>{{ board.network }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('board_index') }}">back to list</a>
+
+    <a href="{{ path('board_edit', {'id': board.id}) }}">edit</a>
+
+    {{ include('board/_delete_form.html.twig') }}
+
+<body>
+  <h1>Hello from ag-grid!</h1>
+  <div id="myGrid" style="height: 250px;width:1000px;" class="ag-theme-balham"></div>
+  <script type="text/javascript" charset="utf-8">
+
+    // specify the columns
+    var columnDefs = [
+    {headerName: "Make", field: "make", sortable: true, filter: true, rowGroup: true},
+    {headerName: "Model", field: "model", sortable: true, filter: true, aggFunc: 'Model ' },
+    {headerName: "Price", field: "price", sortable: true, filter: true, aggFunc: 'Euros ', type: "numericColumn"},
+    {headerName: "Wheal", field: "wheal", sortable: true, filter: true, aggFunc: 'Wheal ', type: "numericColumn"},
+    {headerName: "Country", field: "country", sortable: true, filter: true, aggFunc: 'Country '}
+];
+
+    // specify the data
+    var rowData = [
+      {make: "Toyota", model: "Celica", price : 35000.26, wheal: "4", country: 'Japan' },
+      {make: "Ford", model: "Mondeo", price: 32000, wheal: "4", country: 'USA'},
+      {make: "Porsche", model: "Boxter", price: 72000, wheal: "3", country: 'Germania'},
+      {make: "Renault", model: "Clio", price: 22000, wheal: "4", country: 'France'},
+      {make: "Toyota", model: "Yaris", price: 15000, wheal: "4", country: 'Japan'}
+    ];
+
+    // let the grid know which columns and what data to use
+    var gridOptions = {
+      columnDefs: columnDefs,
+      rowData: rowData
+    };
+
+  // lookup the container we want the Grid to use
+  var eGridDiv = document.querySelector('#myGrid');
+
+  // create the grid passing in the div to use together with the columns & data we want to use
+  new agGrid.Grid(eGridDiv, gridOptions);
+
+  // create the grid passing in the div to use together with the columns & data we want to use
+  new agGrid.Grid(eGridDiv, gridOptions);
+
+agGrid.simpleHttpRequest({url: 'https://api.myjson.com/bins/ly7d1'}).then(function(data) {
+    gridOptions.api.setRowData(data);
+});
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Feuilles{% endblock %}
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="text-center">Listes des feuilles</h2>
+        <p class="text-center">
+            Veuillez sélectionner votre feuille :
+        </p>
+        <div class="leaf row">
+            {% for leaves in leaves %}
+                <div class="card-heading col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 mt-3 text-dark border">
+                    <div style="width: 100%;">
+                        <div class="card-body photos-membre">
+                            <a href="{{ path('board', {id:leaves.id}) }}"><p class="card-title text-center mt-3">{{ leaves.name}}</p></a>
+                            <p class="card-subtitle mb-2 text-muted text-center">{{ leaves.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

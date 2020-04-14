@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Feuille n° -système pour faire apparraître le nom de la page-{% endblock %}
+
+{% block body %}
+
+    <h1>TROPICO !</h1>
+
+    {% set items = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] %}
+
+{% for row in items|batch(3) %}
+<div class="row">
+    {% for cell in row %}
+        <div class="col-xs-4">{{ cell }}</div>
+    {% endfor %}
+</div>
+{% endfor %}
+{% endblock %}

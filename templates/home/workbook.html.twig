@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Classeurs{% endblock %}
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="text-center">Listes des classeurs</h2>
+        <p class="text-center">
+            Veuillez sélectionner votre classeur :
+        </p>
+        <div class="workbook row">
+            {% for workbook in workbooks %}
+                <div class="card-heading col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 mt-3 text-dark border">
+                    <div style="width: 100%;">
+                        <div class="card-body photos-membre">
+                            <a href="{{ path('leaf_list', { 'workbookId': workbook.id }) }}"><p class="card-title text-center mt-3">{{ workbook.name}}</p></a>
+                            <p class="card-subtitle mb-2 text-muted text-center">{{ workbook.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

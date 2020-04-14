@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Workbook index{% endblock %}
+
+{% block body %}
+    <h1>Workbook index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for workbook in workbooks %}
+            <tr>
+                <td>{{ workbook.id }}</td>
+                <td>{{ workbook.Name }}</td>
+                <td>
+                    <a href="{{ path('workbook_show', {'id': workbook.id}) }}">show</a>
+                    <a href="{{ path('workbook_edit', {'id': workbook.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('workbook_new') }}">Create new</a>
+{% endblock %}

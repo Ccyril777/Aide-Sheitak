@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Workbook{% endblock %}
+
+{% block body %}
+    <h1>Create new Workbook</h1>
+
+    {{ include('workbook/_form.html.twig') }}
+
+    <a href="{{ path('workbook_index') }}">back to list</a>
+{% endblock %}

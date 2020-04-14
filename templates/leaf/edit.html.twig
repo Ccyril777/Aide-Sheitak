@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Leaf{% endblock %}
+
+{% block body %}
+    <h1>Edit Leaf</h1>
+
+    {{ include('leaf/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('leaf_index') }}">back to list</a>
+
+    {{ include('leaf/_delete_form.html.twig') }}
+{% endblock %}

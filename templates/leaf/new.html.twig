@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Leaf{% endblock %}
+
+{% block body %}
+    <h1>Create new Leaf</h1>
+
+    {{ include('leaf/_form.html.twig') }}
+
+    <a href="{{ path('leaf_index') }}">back to list</a>
+{% endblock %}
